@@ -1,0 +1,42 @@
+.newsletter {
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 4rem 1rem;
+
+  &__icon {
+    font-size: 2rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+
+    input {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      width: 250px;
+      max-width: 90%;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #333;
+      }
+    }
+  }
+}

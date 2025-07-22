@@ -1,0 +1,41 @@
+.hoodie-collection {
+    //border: red solid 5PX;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  flex-wrap: wrap; 
+  text-align: center;
+  margin-top: 1rem;
+
+  .hoodie-card{
+    width: 400px;
+    padding: 1rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      //border-radius: 4px;
+    }
+
+    h3 {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+    }
+
+    button {
+      background-color: black;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+  }
+}

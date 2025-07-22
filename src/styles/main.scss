@@ -1,0 +1,17 @@
+// styles/main.scss
+
+$primary-color: #1e293b;
+$accent-color: #6366f1;
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: $primary-color;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
