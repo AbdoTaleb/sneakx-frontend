@@ -1,9 +1,19 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+footer {
+  margin-top: auto; 
+  background-color: #000;
+  color: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
+
+}
+
+
 
 .logo {
   height: 6em;
@@ -40,3 +50,4 @@
 .read-the-docs {
   color: #888;
 }
+

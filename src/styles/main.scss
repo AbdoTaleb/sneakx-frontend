@@ -3,11 +3,36 @@
 $primary-color: #1e293b;
 $accent-color: #6366f1;
 
-body {
+html,
+body,
+#root {
+  height: 100%;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #fff;
   color: $primary-color;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+  background-color: #000;
+  color: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
 }
 
 .container {

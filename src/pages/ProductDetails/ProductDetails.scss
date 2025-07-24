@@ -1,0 +1,62 @@
+// ProductDetails.scss
+
+.product-details {
+  display: flex;
+  gap: 1rem;
+  padding: 8rem 4rem 4rem;
+
+  .product-images {
+    flex: 1;
+
+    .main-image {
+      width: 50%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 1rem;
+      object-fit: contain;
+      margin-left: 20rem;
+    }
+  }
+
+  .product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .options {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      select {
+        padding: 0.5rem;
+      }
+    }
+
+    .add-to-cart {
+      background: #000;
+      color: white;
+      padding: 1rem;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 2rem;
+    }
+
+    .description ul {
+      list-style: disc;
+      margin-left: 1rem;
+    }
+  }
+}

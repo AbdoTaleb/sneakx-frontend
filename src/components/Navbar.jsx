@@ -1,17 +1,19 @@
-// src/components/Navbar.jsx
+
 import './Navbar.scss';
+import { Link } from 'react-router-dom';
+
 
 function Navbar() {
   return (
     <header className="navbar">
       <nav className="navbar__content">
         <ul className="navbar__links">
-          <li><a href="#">Boots</a></li>
+          <li><Link to="/products">Sneakers</Link></li>
           <li><a href="#">Hoodies</a></li>
           <li><a href="#">Hats</a></li>
         </ul>
 
-        <div className="navbar__logo">SneakX</div>
+        <Link to="/" className="navbar__logo">SneakX</Link>
 
         <ul className="navbar__links">
           <li><a href="#">Beanies</a></li>
