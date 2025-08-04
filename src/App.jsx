@@ -10,6 +10,8 @@ import HeroHat from './components/HeroHat/HeroHat';
 import Newsletter from './components/Newsletter/Newsletter';
 import Products from './pages/Products/Products';
 import ProductDetails from './pages/ProductDetails/ProductDetails.jsx'; // ✅ تأكد من المسار الصحيح
+import ContactForm from './pages/ContactForm/ContactForm.jsx';
+import HoodieList from './pages/HoodieList/HoodieList.jsx'; // ✅ تأكد من المسار الصحيح
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
         />
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/contant" element={<ContactForm />} />
+        <Route path="/hoodies" element={<HoodieList />} />
       </Routes>
 
       <footer className='footer' style={{ backgroundColor: '#000', color: '#fff', padding: '3rem 1rem', textAlign: 'center' }}>

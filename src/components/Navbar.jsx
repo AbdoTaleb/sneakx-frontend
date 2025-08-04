@@ -9,7 +9,7 @@ function Navbar() {
       <nav className="navbar__content">
         <ul className="navbar__links">
           <li><Link to="/products">Sneakers</Link></li>
-          <li><a href="#">Hoodies</a></li>
+          <li><Link to="/hoodies">Hoodies</Link></li>
           <li><a href="#">Hats</a></li>
         </ul>
 
@@ -18,7 +18,7 @@ function Navbar() {
         <ul className="navbar__links">
           <li><a href="#">Beanies</a></li>
           <li><a href="#">Stickers</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><Link to="/contant">Contant</Link></li>
         </ul>
       </nav>
     </header>

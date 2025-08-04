@@ -1,12 +1,11 @@
 import React from 'react';
 import Navbar from './Navbar';
 import './Hero.scss';
-import heroBg from '../assets/image7.jpg'; // استيراد الصورة مباشرة
-
+import heroBg from '../assets/newbg.png'; 
 function Hero() {
   return (
     <section className="hero">
-      <img src={heroBg} alt="hero" className="hero-img" /> {/* ✅ الصورة */}
+      <img src={heroBg} alt="hero" className="hero-img" /> 
       
       <div className="hero-content">
         <h1>
