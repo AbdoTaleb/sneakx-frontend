@@ -1,5 +1,6 @@
 .hoodie-page {
-  padding: 4rem 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   text-align: center;
 
   .products-title {
@@ -8,16 +9,20 @@
   }
 
   .hoodie-grid {
+    --card: 320px;   
+    --gap: 4rem;     
+    --cols: 6;       
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
-    justify-items: center;
-    padding: 1rem 1rem;
+    grid-template-columns: repeat(auto-fill, var(--card)); 
+    gap: var(--gap);
+    justify-content: start;                                
+    width: min(100%, calc(var(--cols) * var(--card) + (var(--cols) - 1) * var(--gap)));
+    margin: 0 auto;
+    padding: 1rem;
   }
 
   .hoodie-card {
-    width: 100%;
-    max-width: 280px;
+    width: 280px;                
     height: 420px;
     background: #fff;
     border: 1px solid #ddd;
@@ -29,54 +34,69 @@
     align-items: center;
 
     img {
-      width: 220px;
+      width: 100%;
+      max-width: 220px;
       height: 180px;
       object-fit: contain;
       margin-bottom: 1rem;
+      display: block;
     }
 
-    h3 {
-      margin: 0.5rem 0;
+    h3 { 
+      margin: 0.5rem 0; 
+      text-align: center; 
     }
 
-    .price {
-      font-weight: bold;
-      color: #3b82f6;
+    .price { 
+      font-weight: bold; 
+      color: #3b82f6; 
     }
 
     button {
       margin-top: auto;
       padding: 0.5rem 1rem;
-      background: #000;
+      background: #000; 
       color: #fff;
-      border: none;
-      cursor: pointer;
+      border: none; 
+      cursor: pointer; 
       border-radius: 0.5rem;
     }
 
     &:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,.1);
     }
   }
 
   .pagination {
-    margin-top: 2rem;
     display: flex;
     justify-content: center;
     gap: 0.5rem;
+    margin-top: 2rem;
 
     button {
-      padding: 0.5rem 1rem;
-      border: 1px solid #ccc;
-      background: #fff;
+      background: #f0f0f0;
+      border: none;
+      padding: 0.5rem 0.9rem;
+      font-size: 1rem;
+      border-radius: 50%;
       cursor: pointer;
-      border-radius: 0.3rem;
+      transition: all 0.3s ease;
+      min-width: 38px;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background: #3b82f6;
+        color: white;
+      }
 
       &.active {
         background: #000;
-        color: #fff;
-        border-color: #000;
+        color: white;
+        font-weight: bold;
       }
     }
   }

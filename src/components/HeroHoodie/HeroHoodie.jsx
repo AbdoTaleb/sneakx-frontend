@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import './HeroHoodie.scss';
 import hoodieImage from '../../assets/hoodie-image.jpg';
+import { Link } from 'react-router-dom';
 
 function HeroHoodie() {
-  const imgRef = useRef(null); // 1. ربط الصورة بالـ ref
+  const imgRef = useRef(null); 
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -11,7 +12,7 @@ function HeroHoodie() {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('zoom-out');
-            observer.unobserve(entry.target); // فقط مرة واحدة
+            observer.unobserve(entry.target); 
           }
         });
       },
@@ -35,12 +36,15 @@ function HeroHoodie() {
         src={hoodieImage}
         alt="Hoodie"
         className="hoodie-img"
-        ref={imgRef} // 2. ربط العنصر بـ ref
+        ref={imgRef} 
       />
       <div className="hoodie-content">
         <h1>SneakX Hoodies</h1>
         <p className="subtitle">HEAVY-WEIGHT BLEND</p>
-        <button className="shop-btn">SHOP NOW</button>
+        <Link to="/hoodies">
+          <button className="shop-btn">SHOP NOW</button>
+        </Link>
+        
       </div>
     </section>
   );

@@ -10,7 +10,7 @@ function HoodieList() {
   const hoodiesPerPage = 10;
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/hoodie') // Adjust the URL as needed
+    axios.get(`${import.meta.env.VITE_API_URL}/api/hoodie`) // Adjust the URL as needed
       .then(response => {
         setHoodies(response.data);
         console.log('Fetched hoodies:', response.data);
@@ -39,7 +39,7 @@ function HoodieList() {
             {currentHoodies.map(hoodie => (
               <div key={hoodie.id} className="hoodie-card">
                 <img
-                src={`${import.meta.env.VITE_API_BASE_URL}${hoodie.imageURL}`}
+                src={`${import.meta.env.VITE_API_URL}${hoodie.imageURL}`}
                 alt={hoodie.name}
                 style={{ width: '200px', height: '200px', objectFit: 'cover' }}
                 />
@@ -47,7 +47,7 @@ function HoodieList() {
 
                 <h3>{hoodie.name}</h3>
                 <p className="price">${hoodie.price}</p>
-                <Link to={`/product/${hoodie.id}`}>
+                <Link to={`/hoodie/${hoodie.id}`}>
                   <button>View Details</button>
                 </Link>
               </div>

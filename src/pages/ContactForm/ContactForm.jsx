@@ -37,9 +37,7 @@ const ContactForm = () => {
           <textarea name="message" value={form.message} onChange={handleChange} required />
         </div>
         <button type="submit" className="contact__submit">Send</button>
-        <p className="contact__captcha">
-          This site is protected by hCaptcha and the hCaptcha Privacy Policy and Terms of Service apply.
-        </p>
+        
       </form>
     </section>
   );

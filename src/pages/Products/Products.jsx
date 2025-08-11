@@ -8,10 +8,10 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 10; // Adjust the number of products per page as needed
+  const productsPerPage = 12; // Adjust the number of products per page as needed
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/products') // غيّر الرابط إذا اختلف عندك
+  axios.get(`${import.meta.env.VITE_API_URL}/api/products`)
       .then(response => {
         setProducts(response.data);
         console.log('Response data:', response.data);
@@ -23,7 +23,9 @@ function Products() {
         console.error('Error fetching products:', error);
         setLoading(false);
       });
-  }, []);
+}, []);
+    
+
 
   const indexOfLast = currentPage * productsPerPage;
   const indexOfFirst = indexOfLast - productsPerPage;
