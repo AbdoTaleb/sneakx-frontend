@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './HoodieList.scss';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./HoodieList.scss";
+import { Link } from "react-router-dom";
 
 function HoodieList() {
   const [hoodies, setHoodies] = useState([]);
@@ -10,14 +10,15 @@ function HoodieList() {
   const hoodiesPerPage = 10;
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/api/hoodie`) // Adjust the URL as needed
-      .then(response => {
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/hoodies`) // Adjust the URL as needed
+      .then((response) => {
         setHoodies(response.data);
-        console.log('Fetched hoodies:', response.data);
+        console.log("Fetched hoodies:", response.data);
         setLoading(false);
       })
-      .catch(error => {
-        console.error('Error fetching hoodies:', error);
+      .catch((error) => {
+        console.error("Error fetching hoodies:", error);
         setLoading(false);
       });
   }, []);
@@ -36,14 +37,16 @@ function HoodieList() {
       ) : (
         <>
           <div className="hoodie-grid">
-            {currentHoodies.map(hoodie => (
-              <div key={hoodie.id} className="hoodie-card">
+            {currentHoodies.map((hoodie) => (
+              <div
+                key={hoodie.id}
+                className="hoodie-card"
+              >
                 <img
-                src={`${import.meta.env.VITE_API_URL}${hoodie.imageURL}`}
-                alt={hoodie.name}
-                style={{ width: '200px', height: '200px', objectFit: 'cover' }}
+                  src={hoodie.imageURL}
+                  alt={hoodie.name}
+                  style={{ width: "200px", height: "200px", objectFit: "cover" }}
                 />
-
 
                 <h3>{hoodie.name}</h3>
                 <p className="price">${hoodie.price}</p>
@@ -59,7 +62,7 @@ function HoodieList() {
               <button
                 key={index + 1}
                 onClick={() => setCurrentPage(index + 1)}
-                className={currentPage === index + 1 ? 'active' : ''}
+                className={currentPage === index + 1 ? "active" : ""}
               >
                 {index + 1}
               </button>

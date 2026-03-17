@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./ProductDetails.scss";
-import { useCart } from '../../context/CartContext';
-
+import { useCart } from "../../context/CartContext";
 
 function ProductDetails() {
   const { addToCart } = useCart();
@@ -12,7 +11,8 @@ function ProductDetails() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/api/products/${id}`)
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/products/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error(err));
   }, [id]);
@@ -22,8 +22,11 @@ function ProductDetails() {
   return (
     <div className="product-details">
       <div className="product-images">
-        <img src={product.imageURL} alt={product.name} className="main-image" />
-        
+        <img
+          src={product.imageURL}
+          alt={product.name}
+          className="main-image"
+        />
       </div>
 
       <div className="product-info">
@@ -48,7 +51,7 @@ function ProductDetails() {
               id: product.id,
               name: product.name,
               price: product.price,
-              imageURL: product.imageURL, 
+              imageURL: product.imageURL,
             })
           }
         >

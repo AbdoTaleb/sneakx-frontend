@@ -2,8 +2,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./HoodieDetails.scss"; 
-import { useCart } from '../../context/CartContext';
+import "./HoodieDetails.scss";
+import { useCart } from "../../context/CartContext";
 
 function HoodieDetails() {
   const { addToCart } = useCart();
@@ -11,7 +11,8 @@ function HoodieDetails() {
   const [hoodie, setHoodie] = useState(null);
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/api/hoodie/${id}`)
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/hoodies/${id}`)
       .then((res) => setHoodie(res.data))
       .catch((err) => console.error(err));
   }, [id]);
@@ -21,7 +22,11 @@ function HoodieDetails() {
   return (
     <div className="product-details">
       <div className="product-images">
-        <img src={`${import.meta.env.VITE_API_URL}${hoodie.imageURL}`} alt={hoodie.name} className="main-image" />
+        <img
+          src={`${import.meta.env.VITE_API_URL}${hoodie.imageURL}`}
+          alt={hoodie.name}
+          className="main-image"
+        />
       </div>
 
       <div className="product-info">
@@ -37,7 +42,6 @@ function HoodieDetails() {
           </select>
         </div>
 
-        
         <button
           className="add-to-cart"
           onClick={() =>
@@ -45,7 +49,7 @@ function HoodieDetails() {
               id: hoodie.id,
               name: hoodie.name,
               price: hoodie.price,
-              imageURL: `https://localhost:5000${hoodie.imageURL}`, 
+              imageURL: `https://localhost:5000${hoodie.imageURL}`,
             })
           }
         >

@@ -1,8 +1,9 @@
 // src/pages/Products/Products.jsx
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './Products.scss';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./Products.scss";
+import { Link } from "react-router-dom";
+//import { getProducts } from "../../services/apiProducts";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -11,21 +12,18 @@ function Products() {
   const productsPerPage = 12; // Adjust the number of products per page as needed
 
   useEffect(() => {
-  axios.get(`${import.meta.env.VITE_API_URL}/api/products`)
-      .then(response => {
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/products`)
+      .then((response) => {
         setProducts(response.data);
-        console.log('Response data:', response.data);
+        console.log("Response data:", response.data);
         setLoading(false);
-        
-
       })
-      .catch(error => {
-        console.error('Error fetching products:', error);
+      .catch((error) => {
+        console.error("Error fetching products:", error);
         setLoading(false);
       });
-}, []);
-    
-
+  }, []);
 
   const indexOfLast = currentPage * productsPerPage;
   const indexOfFirst = indexOfLast - productsPerPage;
@@ -42,15 +40,20 @@ function Products() {
       ) : (
         <>
           <div className="products-grid">
-            {currentProducts.map(product => (
-              <div key={product.id} className="product-card">
-                <img src={product.imageURL} alt={product.name} />
+            {currentProducts.map((product) => (
+              <div
+                key={product.id}
+                className="product-card"
+              >
+                <img
+                  src={product.imageURL}
+                  alt={product.name}
+                />
                 <h3>{product.name}</h3>
                 <p className="price">${product.price}</p>
                 <Link to={`/product/${product.id}`}>
-                    <button>View Details</button>
+                  <button>View Details</button>
                 </Link>
-
               </div>
             ))}
           </div>
@@ -60,7 +63,7 @@ function Products() {
               <button
                 key={index + 1}
                 onClick={() => setCurrentPage(index + 1)}
-                className={currentPage === index + 1 ? 'active' : ''}
+                className={currentPage === index + 1 ? "active" : ""}
               >
                 {index + 1}
               </button>
@@ -71,6 +74,5 @@ function Products() {
     </section>
   );
 }
-
 
 export default Products;
