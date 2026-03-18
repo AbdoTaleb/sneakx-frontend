@@ -14,7 +14,6 @@ function HoodieList() {
       .get(`${import.meta.env.VITE_API_URL}/api/hoodies`) // Adjust the URL as needed
       .then((response) => {
         setHoodies(response.data);
-        console.log("Fetched hoodies:", response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -33,7 +32,7 @@ function HoodieList() {
       {/* <h2 className="page-title">Our Hoodies</h2> */}
 
       {loading ? (
-        <p className="loading">Loading hoodies...</p>
+        <p className="loading">Loading products... connecting to Render may take a moment</p>
       ) : (
         <>
           <div className="hoodie-grid">

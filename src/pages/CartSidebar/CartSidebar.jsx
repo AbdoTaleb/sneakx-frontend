@@ -1,4 +1,4 @@
-import { useCart } from '../../context/CartContext';
+import { useCart } from "../../context/CartContext";
 import "./CartSidebar.scss";
 
 function CartSidebar() {
@@ -7,7 +7,12 @@ function CartSidebar() {
   return (
     <>
       {/* Overlay */}
-      {isCartOpen && <div className="cart-overlay" onClick={toggleCart}></div>}
+      {isCartOpen && (
+        <div
+          className="cart-overlay"
+          onClick={toggleCart}
+        ></div>
+      )}
 
       <div className={`cart-sidebar ${isCartOpen ? "open" : ""}`}>
         <div className="cart-header">
@@ -20,13 +25,40 @@ function CartSidebar() {
             <p>Your cart is empty.</p>
           ) : (
             cartItems.map((item) => (
-              <div className="cart-item" key={item.id}>
-                <img src={item.imageURL} alt={item.name} />
+              <div
+                className="cart-item"
+                key={item.id}
+              >
+                <img
+                  src={item.imageURL}
+                  alt={item.name}
+                />
                 <div className="item-details">
                   <h4>{item.name}</h4>
                   <p>{item.price} $</p>
-                  <p>Quantity: <strong>{item.quantity}</strong></p>
-                  <button className="remove-btn" onClick={() => removeFromCart(item.id)}>Remove</button>
+
+                  {item.color && (
+                    <p>
+                      Color: <strong>{item.color}</strong>
+                    </p>
+                  )}
+
+                  {item.size && (
+                    <p>
+                      Size: <strong>{item.size}</strong>
+                    </p>
+                  )}
+
+                  <p>
+                    Quantity: <strong>{item.quantity}</strong>
+                  </p>
+
+                  <button
+                    className="remove-btn"
+                    onClick={() => removeFromCart(item.id)}
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
             ))
@@ -34,9 +66,7 @@ function CartSidebar() {
         </div>
 
         <div className="cart-footer">
-          <div className="total-price">
-            Total: {cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)} $
-          </div>
+          <div className="total-price">Total: {cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)} $</div>
           <button className="checkout-btn">Checkout</button>
         </div>
       </div>

@@ -1,4 +1,3 @@
-// ProductDetails.jsx
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -9,6 +8,11 @@ function ProductDetails() {
   const { addToCart } = useCart();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
+
+  const colors = ["Black", "White", "Blue"];
+  const sizes = ["42", "43", "44", "45", "46"];
 
   useEffect(() => {
     axios
@@ -34,26 +38,54 @@ function ProductDetails() {
         <p className="price">{product.price} $</p>
 
         <div className="options">
-          <select>
-            <option>Color</option>
-            {/* colors */}
+          <select
+            value={selectedColor}
+            onChange={(e) => setSelectedColor(e.target.value)}
+          >
+            <option value="">Choose color</option>
+            {colors.map((color) => (
+              <option
+                key={color}
+                value={color}
+              >
+                {color}
+              </option>
+            ))}
           </select>
-          <select>
-            <option>Size</option>
-            {/* sizes */}
+
+          <select
+            value={selectedSize}
+            onChange={(e) => setSelectedSize(e.target.value)}
+          >
+            <option value="">Choose size</option>
+            {sizes.map((size) => (
+              <option
+                key={size}
+                value={size}
+              >
+                {size}
+              </option>
+            ))}
           </select>
         </div>
 
         <button
           className="add-to-cart"
-          onClick={() =>
+          onClick={() => {
+            if (!selectedColor || !selectedSize) {
+              alert("Please select color and size");
+              return;
+            }
+
             addToCart({
               id: product.id,
               name: product.name,
               price: product.price,
               imageURL: product.imageURL,
-            })
-          }
+              color: selectedColor,
+              size: selectedSize,
+            });
+          }}
         >
           ADD TO CART
         </button>

@@ -16,7 +16,6 @@ function Products() {
       .get(`${import.meta.env.VITE_API_URL}/api/products`)
       .then((response) => {
         setProducts(response.data);
-        console.log("Response data:", response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -36,7 +35,7 @@ function Products() {
       {/* <h2 className="products-title">Our Sneakers</h2> */}
 
       {loading ? (
-        <p className="loading">Loading products...</p>
+        <p className="loading">Loading products... connecting to Render may take a moment</p>
       ) : (
         <>
           <div className="products-grid">

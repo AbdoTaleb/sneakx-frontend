@@ -1,31 +1,28 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 64vh;
+  height: 40vh;
   overflow: hidden;
 
   .hero-img {
-     position: absolute;
-     top: 0;
-     left: 0;
-     width: 100%;    
-     height: 100%;   
-     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 
-     transform: scale(1.2);
-     animation: zoomOut 1.2s ease-out forwards;
-   
-    
-   }
+    transform: scale(1.2);
+    animation: zoomOut 1.2s ease-out forwards;
+  }
 
   .hero-content {
-  position: absolute;
+    position: absolute;
     bottom: 8rem;
     right: 14rem;
     left: auto;
     color: white;
-}
-
+  }
 
   h1 {
     font-size: 3rem;
@@ -33,42 +30,43 @@
   .shop-btn {
     width: auto;
     max-width: fit-content;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0; 
-  padding-left: 20px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  background-color: black;
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  border: 2px solid white;
-  border-radius: 4px;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.3s ease;
-
-  span.arrow {
-    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding-left: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: black;
+    color: white;
     font-weight: bold;
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  &:hover {
-    padding-right: 30px; // يخلي الزر يتمدد شوي
+    font-size: 1rem;
+    border: 2px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
 
     span.arrow {
-      opacity: 1;
-      transform: translateX(5px);
-      margin-left: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    &:hover {
+      padding-right: 30px; // يخلي الزر يتمدد شوي
+
+      span.arrow {
+        opacity: 1;
+        transform: translateX(5px);
+        margin-left: 8px;
+      }
     }
   }
-}
-
 }
 
 @keyframes zoomOut {
@@ -79,10 +77,3 @@
     transform: scale(1);
   }
 }
-
-
-
-
-  
-
-
